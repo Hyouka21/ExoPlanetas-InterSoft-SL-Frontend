@@ -2,6 +2,10 @@
   "name": "exoplanet-classifier-frontend",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p 3000",
     "dev:local": "next dev",
