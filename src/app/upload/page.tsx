@@ -70,6 +70,34 @@ export default function UploadPage() {
     }
   };
 
+  const getErrorMessage = (error: any): string => {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    
+    // Handle specific backend errors
+    if (errorMessage.includes('_preprocessor')) {
+      return 'The model is not properly configured. Please try a different model version or contact support.';
+    }
+    
+    if (errorMessage.includes('File format not supported')) {
+      return 'Please upload a valid CSV file with the correct format.';
+    }
+    
+    if (errorMessage.includes('No such file or directory')) {
+      return 'The uploaded file could not be found. Please try uploading again.';
+    }
+    
+    if (errorMessage.includes('Permission denied')) {
+      return 'There was a permission error. Please try again or contact support.';
+    }
+    
+    if (errorMessage.includes('Connection')) {
+      return 'Unable to connect to the server. Please check your internet connection and try again.';
+    }
+    
+    // Default error message
+    return 'Error processing file. Please check the file format and try again.';
+  };
+
   const handleUpload = async () => {
     if (!file) return;
 
@@ -97,7 +125,7 @@ export default function UploadPage() {
       setResult(response);
     } catch (err) {
       console.error('Upload error:', err);
-      setError(err instanceof Error ? err.message : 'Error processing file');
+      setError(getErrorMessage(err));
     } finally {
       setUploading(false);
     }
@@ -120,7 +148,7 @@ export default function UploadPage() {
       document.body.removeChild(a);
     } catch (err) {
       console.error('Download error:', err);
-      setError('Error downloading file');
+      setError('Error downloading file. Please try again.');
     }
   };
 
@@ -248,10 +276,36 @@ export default function UploadPage() {
 
               {/* Error Display */}
               {error && (
-                <div className="p-3 bg-nasa-red/10 border border-nasa-red/30 rounded-md">
-                  <div className="flex items-center">
-                    <AlertCircle className="w-4 h-4 text-nasa-red mr-2" />
-                    <p className="text-sm text-nasa-red">{error}</p>
+                <div className="p-4 bg-nasa-red/10 border border-nasa-red/30 rounded-md">
+                  <div className="flex items-start">
+                    <AlertCircle className="w-5 h-5 text-nasa-red mr-3 mt-0.5 flex-shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-sm text-nasa-red font-medium mb-2">Processing Error</p>
+                      <p className="text-sm text-nasa-red/80 mb-3">{error}</p>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setError(null)}
+                          className="border-nasa-red/30 text-nasa-red hover:bg-nasa-red/10"
+                        >
+                          Dismiss
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => {
+                            setError(null);
+                            if (file) {
+                              handleUpload();
+                            }
+                          }}
+                          className="border-nasa-red/30 text-nasa-red hover:bg-nasa-red/10"
+                        >
+                          Try Again
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
