@@ -266,7 +266,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                 {progress.status === 'error' && 'Error'}
               </Badge>
               {progress.progress && (
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-galaxy-primary">
                   {Math.round(progress.progress)}%
                 </span>
               )}
@@ -277,7 +277,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             )}
 
             {progress.message && (
-              <p className="text-sm text-gray-600">{progress.message}</p>
+              <p className="text-sm text-galaxy-primary">{progress.message}</p>
             )}
 
             {error && (
@@ -300,39 +300,39 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-green-50 rounded-lg">
-                <h4 className="font-semibold text-green-800 mb-2">New Version</h4>
-                <p className="text-2xl font-bold text-green-600">{result.model_version}</p>
+              <div className="p-4 bg-nasa-cyan/10 border border-nasa-cyan/30 rounded-lg">
+                <h4 className="font-semibold text-nasa-cyan mb-2">New Version</h4>
+                <p className="text-2xl font-bold text-nasa-cyan">{result.model_version}</p>
               </div>
               
               {result.accuracy && (
-                <div className="p-4 bg-blue-50 rounded-lg">
-                  <h4 className="font-semibold text-blue-800 mb-2">Accuracy</h4>
-                  <p className="text-2xl font-bold text-blue-600">
+                <div className="p-4 bg-nasa-blue/10 border border-nasa-blue/30 rounded-lg">
+                  <h4 className="font-semibold text-nasa-blue mb-2">Accuracy</h4>
+                  <p className="text-2xl font-bold text-nasa-blue">
                     {(result.accuracy * 100).toFixed(2)}%
                   </p>
                 </div>
               )}
             </div>
 
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Parameters Used</h4>
+            <div className="p-4 bg-galaxy-dark/50 border border-nasa-cyan/30 rounded-lg">
+              <h4 className="font-semibold text-nasa-cyan mb-2">Parameters Used</h4>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
                 <div>
-                  <span className="text-gray-600">Learning Rate:</span>
-                  <span className="ml-1 font-medium">{result.used_params.learning_rate}</span>
+                  <span className="text-galaxy-primary">Learning Rate:</span>
+                  <span className="ml-1 font-medium text-nasa-cyan">{result.used_params.learning_rate}</span>
                 </div>
                 <div>
-                  <span className="text-gray-600">Max Leaf Nodes:</span>
-                  <span className="ml-1 font-medium">{result.used_params.max_leaf_nodes}</span>
+                  <span className="text-galaxy-primary">Max Leaf Nodes:</span>
+                  <span className="ml-1 font-medium text-nasa-cyan">{result.used_params.max_leaf_nodes}</span>
                 </div>
                 <div>
-                  <span className="text-gray-600">Min Samples Leaf:</span>
-                  <span className="ml-1 font-medium">{result.used_params.min_samples_leaf}</span>
+                  <span className="text-galaxy-primary">Min Samples Leaf:</span>
+                  <span className="ml-1 font-medium text-nasa-cyan">{result.used_params.min_samples_leaf}</span>
                 </div>
                 <div>
-                  <span className="text-gray-600">Early Stopping:</span>
-                  <span className="ml-1 font-medium">
+                  <span className="text-galaxy-primary">Early Stopping:</span>
+                  <span className="ml-1 font-medium text-nasa-cyan">
                     {result.used_params.early_stopping ? 'Yes' : 'No'}
                   </span>
                 </div>
@@ -340,8 +340,8 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             </div>
 
             {result.message && (
-              <div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
-                <p className="text-sm text-blue-600">{result.message}</p>
+              <div className="p-3 bg-nasa-blue/10 border border-nasa-blue/30 rounded-md">
+                <p className="text-sm text-nasa-blue">{result.message}</p>
               </div>
             )}
           </CardContent>
