@@ -4,20 +4,25 @@ const nextConfig = {
     domains: ['localhost'],
   },
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:8000/:path*',
-      },
-    ]
+    // Only proxy to localhost in development
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'http://localhost:8000/:path*',
+        },
+      ]
+    }
+    // In production, the API calls will go to the configured NEXT_PUBLIC_API_URL
+    return []
   },
-  // Optimizaciones de rendimiento
+  // Performance optimizations
   experimental: {
     optimizeCss: true,
   },
-  // Configuración de compilación más rápida
+  // Faster compilation
   swcMinify: true,
-  // Reducir el tamaño del bundle
+  // Reduce bundle size
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
