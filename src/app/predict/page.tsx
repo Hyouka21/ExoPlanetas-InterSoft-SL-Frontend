@@ -21,16 +21,16 @@ import {
 } from 'lucide-react';
 
 const exoplanetFields = [
-  { key: 'koi_period', label: 'Período Orbital (días)', description: 'Tiempo que tarda el planeta en completar una órbita' },
-  { key: 'koi_duration', label: 'Duración del Tránsito (horas)', description: 'Tiempo que dura el tránsito del planeta' },
-  { key: 'koi_depth', label: 'Profundidad del Tránsito (ppm)', description: 'Disminución en el brillo de la estrella durante el tránsito' },
-  { key: 'koi_prad', label: 'Radio Planetario (R⊕)', description: 'Radio del planeta en radios terrestres' },
-  { key: 'koi_steff', label: 'Temperatura Efectiva Estelar (K)', description: 'Temperatura efectiva de la estrella' },
-  { key: 'koi_slogg', label: 'Gravedad Superficial Estelar (log g)', description: 'Logaritmo de la gravedad superficial de la estrella' },
-  { key: 'koi_srad', label: 'Radio Estelar (R☉)', description: 'Radio de la estrella en radios solares' },
-  { key: 'koi_smass', label: 'Masa Estelar (M☉)', description: 'Masa de la estrella en masas solares' },
-  { key: 'koi_teq', label: 'Temperatura de Equilibrio (K)', description: 'Temperatura de equilibrio del planeta' },
-  { key: 'koi_insol', label: 'Insolación (S⊕)', description: 'Cantidad de radiación estelar recibida por el planeta' },
+  { key: 'koi_period', label: 'Orbital Period (days)', description: 'Time it takes the planet to complete one orbit' },
+  { key: 'koi_duration', label: 'Transit Duration (hours)', description: 'Duration of the planet transit' },
+  { key: 'koi_depth', label: 'Transit Depth (ppm)', description: 'Decrease in star brightness during transit' },
+  { key: 'koi_prad', label: 'Planetary Radius (R⊕)', description: 'Planet radius in Earth radii' },
+  { key: 'koi_steff', label: 'Stellar Effective Temperature (K)', description: 'Effective temperature of the star' },
+  { key: 'koi_slogg', label: 'Stellar Surface Gravity (log g)', description: 'Logarithm of stellar surface gravity' },
+  { key: 'koi_srad', label: 'Stellar Radius (R☉)', description: 'Star radius in solar radii' },
+  { key: 'koi_smass', label: 'Stellar Mass (M☉)', description: 'Star mass in solar masses' },
+  { key: 'koi_teq', label: 'Equilibrium Temperature (K)', description: 'Planet equilibrium temperature' },
+  { key: 'koi_insol', label: 'Insolation (S⊕)', description: 'Amount of stellar radiation received by the planet' },
 ];
 
 const classIcons = {
@@ -68,7 +68,7 @@ export default function PredictPage() {
     const missingFields = requiredFields.filter(field => !formData[field as keyof ExoplanetData]);
     
     if (missingFields.length > 0) {
-      setError(`Por favor completa todos los campos requeridos`);
+      setError(`Please complete all required fields`);
       return;
     }
 
@@ -81,7 +81,7 @@ export default function PredictPage() {
       setPrediction(response.predictions[0]);
     } catch (err) {
       console.error('Prediction error:', err);
-      setError(err instanceof Error ? err.message : 'Error al realizar la predicción');
+      setError(err instanceof Error ? err.message : 'Error performing prediction');
     } finally {
       setLoading(false);
     }
@@ -104,11 +104,11 @@ export default function PredictPage() {
             </div>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-space-600 to-space-800 bg-clip-text text-transparent mb-2">
-            Clasificador de Exoplanetas
+            Exoplanet Classifier
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Ingresa los parámetros de un exoplaneta para clasificarlo automáticamente 
-            como CONFIRMED, CANDIDATE o FALSE POSITIVE.
+            Enter exoplanet parameters to automatically classify it 
+            as CONFIRMED, CANDIDATE or FALSE POSITIVE.
           </p>
         </div>
 
@@ -116,8 +116,8 @@ export default function PredictPage() {
         <div className="mb-8">
           <ModelVersionSelector
             onSelectionChange={setPredictionParams}
-            title="Configuración del Modelo"
-            description="Selecciona el modelo y versión para realizar la predicción"
+            title="Model Configuration"
+            description="Select the model and version to perform the prediction"
           />
         </div>
 
@@ -127,7 +127,7 @@ export default function PredictPage() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Zap className="w-5 h-5 mr-2 text-space-600" />
-                Parámetros del Exoplaneta
+                Exoplanet Parameters
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -141,7 +141,7 @@ export default function PredictPage() {
                       id={field.key}
                       type="number"
                       step="any"
-                      placeholder={`Ingresa ${field.label.toLowerCase()}`}
+                      placeholder={`Enter ${field.label.toLowerCase()}`}
                       value={formData[field.key as keyof ExoplanetData] || ''}
                       onChange={(e) => handleInputChange(field.key, e.target.value)}
                       className="w-full"
@@ -165,12 +165,12 @@ export default function PredictPage() {
                   {loading ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Clasificando...
+                      Classifying...
                     </>
                   ) : (
                     <>
                       <Brain className="w-4 h-4 mr-2" />
-                      Clasificar Exoplaneta
+                      Classify Exoplanet
                     </>
                   )}
                 </Button>
@@ -185,7 +185,7 @@ export default function PredictPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-600" />
-                    Resultado de la Clasificación
+                    Classification Result
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -204,13 +204,13 @@ export default function PredictPage() {
                       {prediction.class}
                     </Badge>
                     <p className="text-sm text-gray-600">
-                      Clasificación con {((prediction.probabilities[prediction.class] || 0) * 100).toFixed(1)}% de confianza
+                      Classification with {((prediction.probabilities[prediction.class] || 0) * 100).toFixed(1)}% confidence
                     </p>
                   </div>
 
                   {/* Probabilities */}
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900">Probabilidades por Clase:</h4>
+                    <h4 className="font-semibold text-gray-900">Class Probabilities:</h4>
                     {Object.entries(prediction.probabilities).map(([className, probability]) => (
                       <div key={className} className="space-y-2">
                         <div className="flex justify-between items-center">
@@ -232,14 +232,14 @@ export default function PredictPage() {
                     <div className="flex items-start">
                       <Info className="w-5 h-5 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
                       <div>
-                        <h5 className="font-semibold text-blue-900 mb-1">Interpretación:</h5>
+                        <h5 className="font-semibold text-blue-900 mb-1">Interpretation:</h5>
                         <p className="text-sm text-blue-800">
                           {prediction.class === 'CONFIRMED' && 
-                            'Este exoplaneta ha sido confirmado como un planeta real mediante observaciones adicionales.'}
+                            'This exoplanet has been confirmed as a real planet through additional observations.'}
                           {prediction.class === 'CANDIDATE' && 
-                            'Este objeto es un candidato a exoplaneta que requiere más observaciones para confirmación.'}
+                            'This object is an exoplanet candidate that requires more observations for confirmation.'}
                           {prediction.class === 'FALSE POSITIVE' && 
-                            'Este objeto probablemente no es un exoplaneta real, sino un falso positivo causado por otros fenómenos.'}
+                            'This object is probably not a real exoplanet, but a false positive caused by other phenomena.'}
                         </p>
                       </div>
                     </div>
@@ -253,19 +253,19 @@ export default function PredictPage() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Info className="w-5 h-5 mr-2 text-blue-600" />
-                  Información
+                  Information
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm text-gray-600">
                   <p>
-                    <strong>CONFIRMED:</strong> Exoplanetas verificados mediante múltiples métodos de detección.
+                    <strong>CONFIRMED:</strong> Exoplanets verified through multiple detection methods.
                   </p>
                   <p>
-                    <strong>CANDIDATE:</strong> Objetos que muestran señales de tránsito pero requieren confirmación.
+                    <strong>CANDIDATE:</strong> Objects showing transit signals but requiring confirmation.
                   </p>
                   <p>
-                    <strong>FALSE POSITIVE:</strong> Señales que parecen tránsitos pero son causadas por otros fenómenos.
+                    <strong>FALSE POSITIVE:</strong> Signals that appear to be transits but are caused by other phenomena.
                   </p>
                 </div>
               </CardContent>

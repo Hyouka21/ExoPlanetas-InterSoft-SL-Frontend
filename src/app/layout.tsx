@@ -7,9 +7,9 @@ import { Footer } from '@/components/layout/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ExoClassifier - Clasificador de Exoplanetas',
-  description: 'Clasificador automático de exoplanetas utilizando Machine Learning. Descubre nuevos mundos con la ayuda de la inteligencia artificial.',
-  keywords: ['exoplanetas', 'machine learning', 'clasificación', 'astronomía', 'IA'],
+  title: 'ExoClassifier - Exoplanet Classifier',
+  description: 'Automatic exoplanet classifier using Machine Learning. Discover new worlds with the help of artificial intelligence.',
+  keywords: ['exoplanets', 'machine learning', 'classification', 'astronomy', 'AI'],
   authors: [{ name: 'ExoClassifier Team' }],
   viewport: 'width=device-width, initial-scale=1',
 };
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
           <Navbar />

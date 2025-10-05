@@ -19,10 +19,10 @@ import { cn } from '@/lib/utils';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: Home },
-  { name: 'Clasificar', href: '/predict', icon: Brain },
-  { name: 'Subir CSV', href: '/upload', icon: Upload },
-  { name: 'Entrenar', href: '/train', icon: Settings },
-  { name: 'Modelo', href: '/model-info', icon: Info },
+  { name: 'Classify', href: '/predict', icon: Brain },
+  { name: 'Upload CSV', href: '/upload', icon: Upload },
+  { name: 'Train', href: '/train', icon: Settings },
+  { name: 'Model', href: '/model-info', icon: Info },
 ];
 
 export function Navbar() {

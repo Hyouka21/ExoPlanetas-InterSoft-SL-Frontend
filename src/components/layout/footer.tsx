@@ -16,15 +16,15 @@ export function Footer() {
               </span>
             </div>
             <p className="text-gray-600 text-sm">
-              Clasificador automático de exoplanetas utilizando Machine Learning. 
-              Descubre nuevos mundos con la ayuda de la inteligencia artificial.
+              Automatic exoplanet classifier using Machine Learning. 
+              Discover new worlds with the help of artificial intelligence.
             </p>
           </div>
 
           {/* Links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
-              Enlaces
+              Links
             </h3>
             <ul className="space-y-2">
               <li>
@@ -34,17 +34,17 @@ export function Footer() {
               </li>
               <li>
                 <a href="/predict" className="text-gray-600 hover:text-space-700 text-sm transition-colors">
-                  Clasificar Exoplaneta
+                  Classify Exoplanet
                 </a>
               </li>
               <li>
                 <a href="/upload" className="text-gray-600 hover:text-space-700 text-sm transition-colors">
-                  Subir Dataset
+                  Upload Dataset
                 </a>
               </li>
               <li>
                 <a href="/model-info" className="text-gray-600 hover:text-space-700 text-sm transition-colors">
-                  Información del Modelo
+                  Model Information
                 </a>
               </li>
             </ul>
@@ -53,7 +53,7 @@ export function Footer() {
           {/* Contact */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
-              Contacto
+              Contact
             </h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
@@ -78,10 +78,10 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">
-              © 2024 ExoClassifier. Todos los derechos reservados.
+              © 2025 ExoClassifier. All rights reserved.
             </p>
             <p className="text-gray-500 text-sm mt-2 md:mt-0">
-              Desarrollado con ❤️ para la exploración espacial
+              Developed with ❤️ for space exploration
             </p>
           </div>
         </div>

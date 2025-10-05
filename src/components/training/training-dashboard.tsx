@@ -49,18 +49,18 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
 
   const handleTrain = async () => {
     try {
-      setProgress({ status: 'training', progress: 0, message: 'Iniciando entrenamiento...' });
+      setProgress({ status: 'training', progress: 0, message: 'Starting training...' });
       setError(null);
       setResult(null);
 
-      // Simular progreso durante el entrenamiento
+      // Simulate progress during training
       const progressInterval = setInterval(() => {
         setProgress(prev => {
           if (prev.progress && prev.progress < 90) {
             return {
               ...prev,
               progress: prev.progress + Math.random() * 10,
-              message: 'Entrenando modelo...',
+              message: 'Training model...',
             };
           }
           return prev;
@@ -74,16 +74,16 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
       setProgress({ 
         status: 'completed', 
         progress: 100, 
-        message: 'Entrenamiento completado exitosamente!' 
+        message: 'Training completed successfully!' 
       });
       setResult(response);
 
     } catch (err) {
       setProgress({ 
         status: 'error', 
-        message: err instanceof Error ? err.message : 'Error durante el entrenamiento' 
+        message: err instanceof Error ? err.message : 'Error during training' 
       });
-      setError(err instanceof Error ? err.message : 'Error desconocido');
+      setError(err instanceof Error ? err.message : 'Unknown error');
     }
   };
 
@@ -120,12 +120,12 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
         <CardHeader>
           <CardTitle className="flex items-center">
             <Brain className="w-6 h-6 mr-2 text-space-600" />
-            Dashboard de Entrenamiento
+            Training Dashboard
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            Configura los hiperparámetros y entrena un nuevo modelo de clasificación de exoplanetas.
+            Configure hyperparameters and train a new exoplanet classification model.
           </p>
         </CardContent>
       </Card>
@@ -135,7 +135,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
         <CardHeader>
           <CardTitle className="flex items-center">
             <Settings className="w-5 h-5 mr-2" />
-            Parámetros de Entrenamiento
+            Training Parameters
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -144,7 +144,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             <div className="space-y-2">
               <Label htmlFor="learning_rate" className="flex items-center">
                 <Zap className="w-4 h-4 mr-1" />
-                Tasa de Aprendizaje
+                Learning Rate
               </Label>
               <Input
                 id="learning_rate"
@@ -157,7 +157,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                 placeholder="0.1"
               />
               <p className="text-xs text-gray-500">
-                Controla qué tan rápido aprende el modelo (0.001 - 1.0)
+                Controls how fast the model learns (0.001 - 1.0)
               </p>
             </div>
 
@@ -165,7 +165,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             <div className="space-y-2">
               <Label htmlFor="max_leaf_nodes" className="flex items-center">
                 <Target className="w-4 h-4 mr-1" />
-                Máximo Nodos Hoja
+                Max Leaf Nodes
               </Label>
               <Input
                 id="max_leaf_nodes"
@@ -177,7 +177,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                 placeholder="50"
               />
               <p className="text-xs text-gray-500">
-                Limita la complejidad del modelo (2 - 1000)
+                Limits model complexity (2 - 1000)
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             <div className="space-y-2">
               <Label htmlFor="min_samples_leaf" className="flex items-center">
                 <Target className="w-4 h-4 mr-1" />
-                Mínimo Muestras por Hoja
+                Min Samples per Leaf
               </Label>
               <Input
                 id="min_samples_leaf"
@@ -197,7 +197,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                 placeholder="20"
               />
               <p className="text-xs text-gray-500">
-                Previene overfitting (1 - 100)
+                Prevents overfitting (1 - 100)
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             <div className="space-y-2">
               <Label htmlFor="early_stopping" className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
-                Parada Temprana
+                Early Stopping
               </Label>
               <div className="flex items-center space-x-2">
                 <input
@@ -216,11 +216,11 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                   className="rounded border-gray-300"
                 />
                 <Label htmlFor="early_stopping" className="text-sm">
-                  Habilitar parada temprana
+                  Enable early stopping
                 </Label>
               </div>
               <p className="text-xs text-gray-500">
-                Detiene el entrenamiento si no mejora
+                Stops training if no improvement
               </p>
             </div>
           </div>
@@ -236,12 +236,12 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
               {progress.status === 'training' ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Entrenando...
+                  Training...
                 </>
               ) : (
                 <>
                   <Play className="w-5 h-5 mr-2" />
-                  Iniciar Entrenamiento
+                  Start Training
                 </>
               )}
             </Button>
@@ -255,14 +255,14 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
           <CardHeader>
             <CardTitle className="flex items-center">
               {getStatusIcon()}
-              <span className="ml-2">Progreso del Entrenamiento</span>
+              <span className="ml-2">Training Progress</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
               <Badge className={getStatusColor()}>
-                {progress.status === 'training' && 'Entrenando'}
-                {progress.status === 'completed' && 'Completado'}
+                {progress.status === 'training' && 'Training'}
+                {progress.status === 'completed' && 'Completed'}
                 {progress.status === 'error' && 'Error'}
               </Badge>
               {progress.progress && (
@@ -295,19 +295,19 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
           <CardHeader>
             <CardTitle className="flex items-center">
               <CheckCircle className="w-5 h-5 mr-2 text-green-500" />
-              Resultados del Entrenamiento
+              Training Results
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 bg-green-50 rounded-lg">
-                <h4 className="font-semibold text-green-800 mb-2">Nueva Versión</h4>
+                <h4 className="font-semibold text-green-800 mb-2">New Version</h4>
                 <p className="text-2xl font-bold text-green-600">{result.model_version}</p>
               </div>
               
               {result.accuracy && (
                 <div className="p-4 bg-blue-50 rounded-lg">
-                  <h4 className="font-semibold text-blue-800 mb-2">Precisión</h4>
+                  <h4 className="font-semibold text-blue-800 mb-2">Accuracy</h4>
                   <p className="text-2xl font-bold text-blue-600">
                     {(result.accuracy * 100).toFixed(2)}%
                   </p>
@@ -316,7 +316,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             </div>
 
             <div className="p-4 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">Parámetros Utilizados</h4>
+              <h4 className="font-semibold text-gray-800 mb-2">Parameters Used</h4>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
                 <div>
                   <span className="text-gray-600">Learning Rate:</span>
@@ -333,7 +333,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
                 <div>
                   <span className="text-gray-600">Early Stopping:</span>
                   <span className="ml-1 font-medium">
-                    {result.used_params.early_stopping ? 'Sí' : 'No'}
+                    {result.used_params.early_stopping ? 'Yes' : 'No'}
                   </span>
                 </div>
               </div>

@@ -18,8 +18,8 @@ interface ModelVersionSelectorProps {
 export function ModelVersionSelector({ 
   onSelectionChange, 
   className,
-  title = "Selección de Modelo y Versión",
-  description = "Elige el modelo y versión para realizar las predicciones"
+  title = "Model and Version Selection",
+  description = "Choose the model and version to perform predictions"
 }: ModelVersionSelectorProps) {
   const [modelInfo, setModelInfo] = useState<ModelInfo | null>(null);
   const [modelVersions, setModelVersions] = useState<ModelVersions | null>(null);
@@ -45,7 +45,7 @@ export function ModelVersionSelector({
         }
       } catch (err) {
         console.error('Error loading models:', err);
-        setError(err instanceof Error ? err.message : 'Error al cargar los modelos');
+        setError(err instanceof Error ? err.message : 'Error loading models');
       } finally {
         setLoading(false);
       }
@@ -75,7 +75,7 @@ export function ModelVersionSelector({
         }
       } catch (err) {
         console.error('Error loading versions:', err);
-        setError(err instanceof Error ? err.message : 'Error al cargar las versiones');
+        setError(err instanceof Error ? err.message : 'Error loading versions');
       } finally {
         setLoading(false);
       }
@@ -99,7 +99,7 @@ export function ModelVersionSelector({
         <CardContent className="pt-6">
           <div className="flex items-center justify-center">
             <Loader2 className="w-6 h-6 animate-spin mr-2" />
-            <span>Cargando modelos...</span>
+            <span>Loading models...</span>
           </div>
         </CardContent>
       </Card>
@@ -132,10 +132,10 @@ export function ModelVersionSelector({
       <CardContent className="space-y-4">
         {/* Model Selection */}
         <div className="space-y-2">
-          <Label htmlFor="model-select">Modelo</Label>
+          <Label htmlFor="model-select">Model</Label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger>
-              <SelectValue placeholder="Selecciona un modelo" />
+              <SelectValue placeholder="Select a model" />
             </SelectTrigger>
             <SelectContent>
               {modelInfo?.available_models.map((model) => (
@@ -151,7 +151,7 @@ export function ModelVersionSelector({
         <div className="space-y-2">
           <Label htmlFor="version-select" className="flex items-center">
             <GitBranch className="w-4 h-4 mr-1" />
-            Versión
+            Version
           </Label>
           <Select 
             value={selectedVersion} 
@@ -159,7 +159,7 @@ export function ModelVersionSelector({
             disabled={!selectedModel || loading}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Selecciona una versión" />
+              <SelectValue placeholder="Select a version" />
             </SelectTrigger>
             <SelectContent>
               {modelVersions?.versions.map((version) => (
@@ -182,10 +182,10 @@ export function ModelVersionSelector({
         {selectedModel && selectedVersion && (
           <div className="pt-4 border-t">
             <div className="text-sm text-gray-600">
-              <p><strong>Modelo seleccionado:</strong> {selectedModel}</p>
-              <p><strong>Versión seleccionada:</strong> {selectedVersion}</p>
+              <p><strong>Selected model:</strong> {selectedModel}</p>
+              <p><strong>Selected version:</strong> {selectedVersion}</p>
               {modelVersions && (
-                <p><strong>Total de versiones:</strong> {modelVersions.total_versions}</p>
+                <p><strong>Total versions:</strong> {modelVersions.total_versions}</p>
               )}
             </div>
           </div>

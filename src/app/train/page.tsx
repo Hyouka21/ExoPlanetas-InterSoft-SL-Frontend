@@ -19,7 +19,7 @@ export default function TrainPage() {
               <Link href="/">
                 <Button variant="ghost" size="sm" className="mr-4">
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  Volver al Dashboard
+                  Back to Dashboard
                 </Button>
               </Link>
               <div className="flex items-center">
@@ -28,10 +28,10 @@ export default function TrainPage() {
                 </div>
                 <div className="ml-4">
                   <h1 className="text-3xl font-bold text-gray-900">
-                    Entrenamiento de Modelos
+                    Model Training
                   </h1>
                   <p className="text-gray-600">
-                    Configura hiperparámetros y entrena nuevos modelos de clasificación
+                    Configure hyperparameters and train new classification models
                   </p>
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default function TrainPage() {
           <CardHeader>
             <CardTitle className="flex items-center">
               <Info className="w-5 h-5 mr-2 text-blue-600" />
-              Información sobre el Entrenamiento
+              Training Information
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -56,9 +56,9 @@ export default function TrainPage() {
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Brain className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Algoritmo</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Algorithm</h3>
                 <p className="text-sm text-gray-600">
-                  Utiliza Gradient Boosting para clasificación de exoplanetas
+                  Uses Gradient Boosting for exoplanet classification
                 </p>
               </div>
               
@@ -68,7 +68,7 @@ export default function TrainPage() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Dataset</h3>
                 <p className="text-sm text-gray-600">
-                  Entrenado con datos de Kepler y TESS de la NASA
+                  Trained with NASA Kepler and TESS data
                 </p>
               </div>
               
@@ -76,7 +76,7 @@ export default function TrainPage() {
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Brain className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Clases</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Classes</h3>
                 <p className="text-sm text-gray-600">
                   CANDIDATE, CONFIRMED, FALSE POSITIVE
                 </p>

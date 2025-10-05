@@ -38,7 +38,7 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
         }
       } catch (err) {
         console.error('Error loading models:', err);
-        setError(err instanceof Error ? err.message : 'Error al cargar los modelos');
+        setError(err instanceof Error ? err.message : 'Error loading models');
       } finally {
         setLoading(false);
       }
@@ -65,7 +65,7 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
         }
       } catch (err) {
         console.error('Error loading versions:', err);
-        setError(err instanceof Error ? err.message : 'Error al cargar las versiones');
+        setError(err instanceof Error ? err.message : 'Error loading versions');
       } finally {
         setLoading(false);
       }
@@ -86,7 +86,7 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
         <CardContent className="pt-6">
           <div className="flex items-center justify-center">
             <Loader2 className="w-6 h-6 animate-spin mr-2" />
-            <span>Cargando modelos...</span>
+            <span>Loading models...</span>
           </div>
         </CardContent>
       </Card>
@@ -110,16 +110,16 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
       <CardHeader>
         <CardTitle className="flex items-center">
           <Brain className="w-5 h-5 mr-2 text-space-600" />
-          Selección de Modelo
+          Model Selection
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Model Selection */}
         <div className="space-y-2">
-          <Label htmlFor="model-select">Modelo</Label>
+          <Label htmlFor="model-select">Model</Label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger>
-              <SelectValue placeholder="Selecciona un modelo" />
+              <SelectValue placeholder="Select a model" />
             </SelectTrigger>
             <SelectContent>
               {modelInfo?.available_models.map((model) => (
@@ -135,7 +135,7 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
         <div className="space-y-2">
           <Label htmlFor="version-select" className="flex items-center">
             <GitBranch className="w-4 h-4 mr-1" />
-            Versión
+            Version
           </Label>
           <Select 
             value={selectedVersion} 
@@ -143,7 +143,7 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
             disabled={!selectedModel || loading}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Selecciona una versión" />
+              <SelectValue placeholder="Select a version" />
             </SelectTrigger>
             <SelectContent>
               {modelVersions?.versions.map((version) => (
@@ -166,10 +166,10 @@ export function ModelSelector({ onModelVersionChange, className }: ModelSelector
         {modelInfo && selectedModel && (
           <div className="pt-4 border-t">
             <div className="text-sm text-gray-600">
-              <p><strong>Modelo actual:</strong> {modelInfo.current_model.name}</p>
-              <p><strong>Versión actual:</strong> {modelInfo.current_model.version}</p>
-              <p><strong>Clases:</strong> {modelInfo.current_model.classes.join(', ')}</p>
-              <p><strong>Total de modelos:</strong> {modelInfo.total_models}</p>
+              <p><strong>Current model:</strong> {modelInfo.current_model.name}</p>
+              <p><strong>Current version:</strong> {modelInfo.current_model.version}</p>
+              <p><strong>Classes:</strong> {modelInfo.current_model.classes.join(', ')}</p>
+              <p><strong>Total models:</strong> {modelInfo.total_models}</p>
             </div>
           </div>
         )}

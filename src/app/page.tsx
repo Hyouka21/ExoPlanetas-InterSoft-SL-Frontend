@@ -46,7 +46,7 @@ export default function Dashboard() {
       setMetrics(metricsData);
     } catch (err) {
       console.error('Error fetching data:', err);
-      setError(err instanceof Error ? err.message : 'Error al cargar los datos');
+      setError(err instanceof Error ? err.message : 'Error loading data');
     } finally {
       setLoading(false);
     }
@@ -60,14 +60,14 @@ export default function Dashboard() {
             <div className="text-center">
               <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Error de Conexión
+                Connection Error
               </h3>
               <p className="text-gray-600 mb-4">{error}</p>
               <Button 
                 onClick={() => window.location.reload()} 
                 variant="outline"
               >
-                Reintentar
+                Retry
               </Button>
             </div>
           </CardContent>
@@ -91,26 +91,26 @@ export default function Dashboard() {
               ExoClassifier
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Clasificador automático de exoplanetas utilizando Machine Learning. 
-              Descubre nuevos mundos con la ayuda de la inteligencia artificial.
+              Automatic exoplanet classifier using Machine Learning. 
+              Discover new worlds with the help of artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/predict">
                 <Button size="lg" className="w-full sm:w-auto">
                   <Brain className="w-5 h-5 mr-2" />
-                  Clasificar Exoplaneta
+                  Classify Exoplanet
                 </Button>
               </Link>
               <Link href="/upload">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto">
                   <Upload className="w-5 h-5 mr-2" />
-                  Subir Dataset
+                  Upload Dataset
                 </Button>
               </Link>
               <Link href="/train">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto">
                   <Brain className="w-5 h-5 mr-2" />
-                  Entrenar Modelo
+                  Train Model
                 </Button>
               </Link>
             </div>
@@ -129,7 +129,7 @@ export default function Dashboard() {
         {loading && (
           <div className="text-center py-8">
             <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-space-600" />
-            <p className="text-gray-600">Cargando datos del modelo...</p>
+            <p className="text-gray-600">Loading model data...</p>
           </div>
         )}
 
@@ -154,7 +154,7 @@ export default function Dashboard() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <BarChart3 className="w-5 h-5 mr-2" />
-                  Acciones Rápidas
+                  Quick Actions
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -164,9 +164,9 @@ export default function Dashboard() {
                       <CardContent className="pt-6">
                         <div className="text-center">
                           <Brain className="w-8 h-8 text-space-600 mx-auto mb-2" />
-                          <h3 className="font-semibold mb-1">Clasificación Individual</h3>
+                          <h3 className="font-semibold mb-1">Individual Classification</h3>
                           <p className="text-sm text-gray-600">
-                            Clasifica un exoplaneta ingresando sus parámetros
+                            Classify an exoplanet by entering its parameters
                           </p>
                         </div>
                       </CardContent>
@@ -178,9 +178,9 @@ export default function Dashboard() {
                       <CardContent className="pt-6">
                         <div className="text-center">
                           <Upload className="w-8 h-8 text-space-600 mx-auto mb-2" />
-                          <h3 className="font-semibold mb-1">Procesamiento en Lote</h3>
+                          <h3 className="font-semibold mb-1">Batch Processing</h3>
                           <p className="text-sm text-gray-600">
-                            Sube un archivo CSV para clasificar múltiples exoplanetas
+                            Upload a CSV file to classify multiple exoplanets
                           </p>
                         </div>
                       </CardContent>
@@ -192,9 +192,9 @@ export default function Dashboard() {
                       <CardContent className="pt-6">
                         <div className="text-center">
                           <Brain className="w-8 h-8 text-space-600 mx-auto mb-2" />
-                          <h3 className="font-semibold mb-1">Entrenar Modelo</h3>
+                          <h3 className="font-semibold mb-1">Train Model</h3>
                           <p className="text-sm text-gray-600">
-                            Configura hiperparámetros y entrena nuevos modelos
+                            Configure hyperparameters and train new models
                           </p>
                         </div>
                       </CardContent>
@@ -206,9 +206,9 @@ export default function Dashboard() {
                       <CardContent className="pt-6">
                         <div className="text-center">
                           <BarChart3 className="w-8 h-8 text-space-600 mx-auto mb-2" />
-                          <h3 className="font-semibold mb-1">Información del Modelo</h3>
+                          <h3 className="font-semibold mb-1">Model Information</h3>
                           <p className="text-sm text-gray-600">
-                            Detalles técnicos y métricas de rendimiento
+                            Technical details and performance metrics
                           </p>
                         </div>
                       </CardContent>

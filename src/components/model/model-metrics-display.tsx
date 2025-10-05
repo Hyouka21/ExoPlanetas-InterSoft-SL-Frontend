@@ -80,7 +80,7 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
         <CardHeader>
           <CardTitle className="flex items-center">
             <BarChart3 className="w-5 h-5 mr-2 text-space-600" />
-            Rendimiento General del Modelo
+            General Model Performance
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -133,7 +133,7 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
         <CardHeader>
           <CardTitle className="flex items-center">
             <Database className="w-5 h-5 mr-2 text-space-600" />
-            Información del Dataset
+            Dataset Information
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -142,21 +142,21 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
               <div className="text-2xl font-bold text-gray-700">
                 {totalSamples.toLocaleString()}
               </div>
-              <div className="text-sm text-gray-600">Total de Muestras</div>
+              <div className="text-sm text-gray-600">Total Samples</div>
             </div>
             
             <div className="text-center p-4 bg-gray-50 rounded-lg">
               <div className="text-2xl font-bold text-gray-700">
                 {classMetrics.length}
               </div>
-              <div className="text-sm text-gray-600">Clases</div>
+              <div className="text-sm text-gray-600">Classes</div>
             </div>
             
             <div className="text-center p-4 bg-gray-50 rounded-lg">
               <div className="text-2xl font-bold text-gray-700">
                 {modelInfo.version}
               </div>
-              <div className="text-sm text-gray-600">Versión del Modelo</div>
+              <div className="text-sm text-gray-600">Model Version</div>
             </div>
           </div>
         </CardContent>
@@ -167,7 +167,7 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
         <CardHeader>
           <CardTitle className="flex items-center">
             <Target className="w-5 h-5 mr-2 text-space-600" />
-            Métricas por Clase
+            Metrics by Class
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -183,7 +183,7 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
                       <Icon className="w-5 h-5 mr-2" />
                       <span className="font-semibold">{classMetric.className}</span>
                       <Badge variant="secondary" className="ml-2">
-                        {classMetric.support} muestras
+                        {classMetric.support} samples
                       </Badge>
                     </div>
                   </div>
@@ -220,30 +220,30 @@ export function ModelMetricsDisplay({ modelInfo, className }: ModelMetricsDispla
         <CardHeader>
           <CardTitle className="flex items-center">
             <Brain className="w-5 h-5 mr-2 text-space-600" />
-            Información del Modelo
+            Model Information
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-medium text-gray-500">Nombre del Modelo</label>
+              <label className="text-sm font-medium text-gray-500">Model Name</label>
               <p className="text-sm font-semibold mt-1">{modelInfo.model_name}</p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">Versión</label>
+              <label className="text-sm font-medium text-gray-500">Version</label>
               <p className="text-sm font-semibold mt-1">{modelInfo.version}</p>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">Estado</label>
+              <label className="text-sm font-medium text-gray-500">Status</label>
               <div className="mt-1">
                 <Badge variant={modelInfo.model_exists ? "default" : "destructive"}>
-                  {modelInfo.model_exists ? "Disponible" : "No encontrado"}
+                  {modelInfo.model_exists ? "Available" : "Not found"}
                 </Badge>
               </div>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-500">Tamaño del Dataset</label>
-              <p className="text-sm font-semibold mt-1">{totalSamples.toLocaleString()} exoplanetas</p>
+              <label className="text-sm font-medium text-gray-500">Dataset Size</label>
+              <p className="text-sm font-semibold mt-1">{totalSamples.toLocaleString()} exoplanets</p>
             </div>
           </div>
         </CardContent>

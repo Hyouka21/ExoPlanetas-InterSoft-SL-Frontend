@@ -36,10 +36,10 @@ export function MetricsCards({ modelVersionInfo, metrics, className }: MetricsCa
 
   const cards = [
     {
-      title: 'Precisión del Modelo',
+      title: 'Model Accuracy',
       value: `${(accuracy * 100).toFixed(1)}%`,
       icon: Target,
-      description: 'Exactitud general del clasificador',
+      description: 'Overall classifier accuracy',
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
@@ -47,23 +47,23 @@ export function MetricsCards({ modelVersionInfo, metrics, className }: MetricsCa
       title: 'F1-Score',
       value: `${(f1Score * 100).toFixed(1)}%`,
       icon: TrendingUp,
-      description: 'Media armónica entre precisión y recall',
+      description: 'Harmonic mean between precision and recall',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
     },
     {
-      title: 'Exoplanetas Analizados',
+      title: 'Exoplanets Analyzed',
       value: totalPlanets.toLocaleString(),
       icon: Activity,
-      description: 'Total de planetas procesados',
+      description: 'Total planets processed',
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
     },
     {
-      title: 'Versión del Modelo',
+      title: 'Model Version',
       value: modelVersionInfo.version,
       icon: Brain,
-      description: 'Versión actual del clasificador',
+      description: 'Current classifier version',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
     },
@@ -127,7 +127,7 @@ export function ClassBreakdown({ metrics }: { metrics: DashboardMetrics }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Desglose por Clase</CardTitle>
+        <CardTitle>Class Breakdown</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -142,7 +142,7 @@ export function ClassBreakdown({ metrics }: { metrics: DashboardMetrics }) {
                   <div>
                     <div className="font-medium">{item.className}</div>
                     <div className="text-sm text-gray-500">
-                      {item.count} exoplanetas
+                      {item.count} exoplanets
                     </div>
                   </div>
                 </div>

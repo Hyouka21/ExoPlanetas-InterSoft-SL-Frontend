@@ -27,7 +27,7 @@ export function ConfusionMatrixChart({ data, className }: ConfusionMatrixChartPr
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>Matriz de Confusión</CardTitle>
+        <CardTitle>Confusion Matrix</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="w-full">
@@ -35,7 +35,7 @@ export function ConfusionMatrixChart({ data, className }: ConfusionMatrixChartPr
             {/* Header row */}
             <div className="flex w-full">
               <div className="w-1/4 h-16 sm:h-20 flex items-center justify-center text-sm sm:text-base font-medium text-gray-500 border-r border-b bg-gray-50">
-                Real
+                Actual
               </div>
               {classes.map((cls) => (
                 <div key={cls} className="w-1/4 h-16 sm:h-20 flex items-center justify-center text-sm sm:text-base font-medium text-gray-700 border-r border-b bg-gray-50">
@@ -89,11 +89,11 @@ export function ConfusionMatrixChart({ data, className }: ConfusionMatrixChartPr
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm">
           <div className="flex items-center space-x-3">
             <div className="w-5 h-5 rounded border" style={{ backgroundColor: 'rgba(34, 197, 94, 0.4)' }}></div>
-            <span className="text-gray-700 font-medium">Predicciones Correctas</span>
+            <span className="text-gray-700 font-medium">Correct Predictions</span>
           </div>
           <div className="flex items-center space-x-3">
             <div className="w-5 h-5 rounded border" style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)' }}></div>
-            <span className="text-gray-700 font-medium">Predicciones Incorrectas</span>
+            <span className="text-gray-700 font-medium">Incorrect Predictions</span>
           </div>
         </div>
       </CardContent>

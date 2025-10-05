@@ -30,7 +30,7 @@ export function ClassDistributionChart({ data, className }: ClassDistributionCha
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>Distribución de Clases</CardTitle>
+        <CardTitle>Class Distribution</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-64">
@@ -51,8 +51,8 @@ export function ClassDistributionChart({ data, className }: ClassDistributionCha
                 ))}
               </Pie>
               <Tooltip 
-                formatter={(value: number) => [value, 'Exoplanetas']}
-                labelFormatter={(label) => `Clase: ${label}`}
+                formatter={(value: number) => [value, 'Exoplanets']}
+                labelFormatter={(label) => `Class: ${label}`}
               />
               <Legend />
             </PieChart>

@@ -52,7 +52,7 @@ export default function UploadPage() {
         setError(null);
         setResult(null);
       } else {
-        setError('Por favor selecciona un archivo CSV válido');
+        setError('Please select a valid CSV file');
       }
     }
   }, []);
@@ -65,7 +65,7 @@ export default function UploadPage() {
         setError(null);
         setResult(null);
       } else {
-        setError('Por favor selecciona un archivo CSV válido');
+        setError('Please select a valid CSV file');
       }
     }
   };
@@ -97,7 +97,7 @@ export default function UploadPage() {
       setResult(response);
     } catch (err) {
       console.error('Upload error:', err);
-      setError(err instanceof Error ? err.message : 'Error al procesar el archivo');
+      setError(err instanceof Error ? err.message : 'Error processing file');
     } finally {
       setUploading(false);
     }
@@ -120,7 +120,7 @@ export default function UploadPage() {
       document.body.removeChild(a);
     } catch (err) {
       console.error('Download error:', err);
-      setError('Error al descargar el archivo');
+      setError('Error downloading file');
     }
   };
 
@@ -149,11 +149,11 @@ export default function UploadPage() {
             </div>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-space-600 to-space-800 bg-clip-text text-transparent mb-2">
-            Procesamiento en Lote
+            Batch Processing
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Sube un archivo CSV con datos de exoplanetas para clasificarlos automáticamente 
-            y obtener resultados en lote.
+            Upload a CSV file with exoplanet data to automatically classify them 
+            and get batch results.
           </p>
         </div>
 
@@ -161,8 +161,8 @@ export default function UploadPage() {
         <div className="mb-8">
           <ModelVersionSelector
             onSelectionChange={setPredictionParams}
-            title="Configuración del Modelo"
-            description="Selecciona el modelo y versión para procesar el archivo CSV"
+            title="Model Configuration"
+            description="Select the model and version to process the CSV file"
           />
         </div>
 
@@ -172,7 +172,7 @@ export default function UploadPage() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-space-600" />
-                Subir Archivo CSV
+                Upload CSV File
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -203,7 +203,7 @@ export default function UploadPage() {
                       onClick={() => setFile(null)}
                     >
                       <X className="w-4 h-4 mr-2" />
-                      Remover
+                      Remove
                     </Button>
                   </div>
                 ) : (
@@ -213,10 +213,10 @@ export default function UploadPage() {
                     </div>
                     <div>
                       <p className="text-lg font-medium text-gray-900">
-                        Arrastra tu archivo CSV aquí
+                        Drag your CSV file here
                       </p>
                       <p className="text-sm text-gray-500">
-                        o haz clic para seleccionar
+                        or click to select
                       </p>
                     </div>
                     <input
@@ -228,7 +228,7 @@ export default function UploadPage() {
                     />
                     <label htmlFor="file-upload">
                       <Button variant="outline" asChild>
-                        <span>Seleccionar Archivo</span>
+                        <span>Select File</span>
                       </Button>
                     </label>
                   </div>
@@ -239,7 +239,7 @@ export default function UploadPage() {
               {uploading && (
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span>Procesando archivo...</span>
+                    <span>Processing file...</span>
                     <span>{uploadProgress}%</span>
                   </div>
                   <Progress value={uploadProgress} className="h-2" />
@@ -266,12 +266,12 @@ export default function UploadPage() {
                 {uploading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Procesando...
+                    Processing...
                   </>
                 ) : (
                   <>
                     <Upload className="w-4 h-4 mr-2" />
-                    Procesar Archivo
+                    Process File
                   </>
                 )}
               </Button>
@@ -285,7 +285,7 @@ export default function UploadPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-600" />
-                    Resultados del Procesamiento
+                    Processing Results
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -294,14 +294,14 @@ export default function UploadPage() {
                     <div className="text-3xl font-bold text-space-600 mb-2">
                       {result.total_planets.toLocaleString()}
                     </div>
-                    <p className="text-gray-600">Exoplanetas procesados</p>
+                    <p className="text-gray-600">Exoplanets processed</p>
                   </div>
 
                   {/* Class Distribution */}
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 flex items-center">
                       <BarChart3 className="w-4 h-4 mr-2" />
-                      Distribución de Clases:
+                      Class Distribution:
                     </h4>
                     <div className="space-y-2">
                       {Object.entries(result.class_distribution).map(([className, count]) => (
@@ -324,7 +324,7 @@ export default function UploadPage() {
                     size="lg"
                   >
                     <Download className="w-4 h-4 mr-2" />
-                    Descargar Resultados
+                    Download Results
                   </Button>
                 </CardContent>
               </Card>
@@ -335,24 +335,24 @@ export default function UploadPage() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Info className="w-5 h-5 mr-2 text-blue-600" />
-                  Formato del Archivo
+                  File Format
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm text-gray-600">
                   <p>
-                    <strong>Formato requerido:</strong> Archivo CSV con las siguientes columnas:
+                    <strong>Required format:</strong> CSV file with the following columns:
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>koi_period (período orbital en días)</li>
-                    <li>koi_duration (duración del tránsito en horas)</li>
-                    <li>koi_depth (profundidad del tránsito en ppm)</li>
-                    <li>koi_prad (radio planetario en radios terrestres)</li>
-                    <li>koi_steff (temperatura efectiva estelar en K)</li>
-                    <li>Y otras características del exoplaneta...</li>
+                    <li>koi_period (orbital period in days)</li>
+                    <li>koi_duration (transit duration in hours)</li>
+                    <li>koi_depth (transit depth in ppm)</li>
+                    <li>koi_prad (planetary radius in Earth radii)</li>
+                    <li>koi_steff (stellar effective temperature in K)</li>
+                    <li>And other exoplanet characteristics...</li>
                   </ul>
                   <p className="text-xs text-gray-500 mt-3">
-                    El archivo debe tener una fila de encabezados y los datos en las filas siguientes.
+                    The file must have a header row and data in the following rows.
                   </p>
                 </div>
               </CardContent>
