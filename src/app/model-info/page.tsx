@@ -14,10 +14,8 @@ import {
   Info, 
   Database,
   Loader2,
-  AlertCircle,
-  ArrowLeft
+  AlertCircle
 } from 'lucide-react';
-import Link from 'next/link';
 
 export default function ModelInfoPage() {
   const [modelInfo, setModelInfo] = useState<ModelInfo | null>(null);
@@ -73,7 +71,7 @@ export default function ModelInfoPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+          <AlertCircle className="w-12 h-12 text-nasa-red mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Error loading</h2>
           <p className="text-gray-600 mb-4">{error}</p>
           <Button onClick={() => window.location.reload()}>
@@ -89,13 +87,6 @@ export default function ModelInfoPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center mb-4">
-            <Link href="/" className="flex items-center text-space-600 hover:text-space-700 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Dashboard
-            </Link>
-          </div>
-          
           <div className="text-center">
             <div className="flex items-center justify-center mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-space-500 to-space-700 rounded-xl flex items-center justify-center">
@@ -184,12 +175,12 @@ export default function ModelInfoPage() {
                     {modelInfo.current_model.dataset_name ? (
                       <div className="flex items-center text-sm p-2 bg-gray-50 rounded-lg">
                         <Database className="w-4 h-4 text-gray-400 mr-2" />
-                        <span className="font-medium">{modelInfo.current_model.dataset_name}</span>
+                        <span className="font-medium text-gray-800">{modelInfo.current_model.dataset_name}</span>
                       </div>
                     ) : (
                       <div className="flex items-center text-sm p-2 bg-gray-50 rounded-lg">
                         <Database className="w-4 h-4 text-gray-400 mr-2" />
-                        <span className="text-gray-500">No dataset information available</span>
+                        <span className="text-gray-600">No dataset information available</span>
                       </div>
                     )}
                   </div>

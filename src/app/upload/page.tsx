@@ -212,10 +212,10 @@ export default function UploadPage() {
                       <Upload className="w-12 h-12 text-gray-400" />
                     </div>
                     <div>
-                      <p className="text-lg font-medium text-gray-900">
+                      <p className="text-lg font-medium text-nasa-cyan">
                         Drag your CSV file here
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-galaxy-primary">
                         or click to select
                       </p>
                     </div>
@@ -248,10 +248,10 @@ export default function UploadPage() {
 
               {/* Error Display */}
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                <div className="p-3 bg-nasa-red/10 border border-nasa-red/30 rounded-md">
                   <div className="flex items-center">
-                    <AlertCircle className="w-4 h-4 text-red-600 mr-2" />
-                    <p className="text-sm text-red-600">{error}</p>
+                    <AlertCircle className="w-4 h-4 text-nasa-red mr-2" />
+                    <p className="text-sm text-nasa-red">{error}</p>
                   </div>
                 </div>
               )}
@@ -299,7 +299,7 @@ export default function UploadPage() {
 
                   {/* Class Distribution */}
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900 flex items-center">
+                    <h4 className="font-semibold text-nasa-cyan flex items-center">
                       <BarChart3 className="w-4 h-4 mr-2" />
                       Class Distribution:
                     </h4>

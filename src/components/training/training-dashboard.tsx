@@ -94,7 +94,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
       case 'completed':
         return <CheckCircle className="w-5 h-5 text-green-500" />;
       case 'error':
-        return <AlertCircle className="w-5 h-5 text-red-500" />;
+        return <AlertCircle className="w-5 h-5 text-nasa-red" />;
       default:
         return <Brain className="w-5 h-5 text-gray-500" />;
     }
@@ -107,7 +107,7 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
       case 'completed':
         return 'bg-green-100 text-green-800';
       case 'error':
-        return 'bg-red-100 text-red-800';
+        return 'bg-nasa-red/20 text-nasa-red';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -281,8 +281,8 @@ export function TrainingDashboard({ className }: TrainingDashboardProps) {
             )}
 
             {error && (
-              <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-600">{error}</p>
+              <div className="p-3 bg-nasa-red/10 border border-nasa-red/30 rounded-md">
+                <p className="text-sm text-nasa-red">{error}</p>
               </div>
             )}
           </CardContent>

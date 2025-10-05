@@ -118,7 +118,7 @@ export function ClassBreakdown({ metrics }: { metrics: DashboardMetrics }) {
       case 'candidate':
         return 'text-yellow-600 bg-yellow-50';
       case 'false positive':
-        return 'text-red-600 bg-red-50';
+        return 'text-nasa-red bg-nasa-red/10';
       default:
         return 'text-gray-600 bg-gray-50';
     }

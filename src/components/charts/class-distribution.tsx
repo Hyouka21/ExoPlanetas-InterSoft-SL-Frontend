@@ -12,10 +12,10 @@ interface ClassDistributionChartProps {
 const COLORS = {
   'CONFIRMED': '#10B981',
   'CANDIDATE': '#F59E0B', 
-  'FALSE POSITIVE': '#EF4444',
+  'FALSE POSITIVE': '#ff4444',
   'confirmed': '#10B981',
   'candidate': '#F59E0B',
-  'false_positive': '#EF4444',
+  'false_positive': '#ff4444',
 };
 
 export function ClassDistributionChart({ data, className }: ClassDistributionChartProps) {
@@ -30,7 +30,7 @@ export function ClassDistributionChart({ data, className }: ClassDistributionCha
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>Class Distribution</CardTitle>
+        <CardTitle className="text-nasa-cyan">Class Distribution</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-64">

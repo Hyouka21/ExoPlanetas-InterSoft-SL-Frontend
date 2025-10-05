@@ -110,7 +110,7 @@ export function ModelVersionSelector({
     return (
       <Card className={className}>
         <CardContent className="pt-6">
-          <div className="text-center text-red-600">
+          <div className="text-center text-nasa-red">
             <p>Error: {error}</p>
           </div>
         </CardContent>

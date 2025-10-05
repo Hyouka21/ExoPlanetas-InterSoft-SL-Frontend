@@ -4,48 +4,49 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    /* Galactic Dark Theme */
+    --background: 0 0% 4%;        /* Deep space black */
+    --foreground: 180 100% 90%;   /* Bright cyan text */
+    --card: 0 0% 6%;              /* Slightly lighter black for cards */
+    --card-foreground: 180 100% 90%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 180 100% 80%;      /* NASA cyan */
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;        /* Dark gray */
+    --secondary-foreground: 180 100% 90%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 180 50% 70%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 180 100% 90%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 0 0% 15%;           /* Dark borders */
+    --input: 0 0% 15%;
+    --ring: 180 100% 80%;         /* Cyan ring */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 0 0% 4%;
+    --foreground: 180 100% 90%;
+    --card: 0 0% 6%;
+    --card-foreground: 180 100% 90%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 180 100% 80%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 180 100% 90%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 180 50% 70%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 180 100% 90%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 180 100% 80%;
   }
 }
 
@@ -85,15 +86,40 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Gradient backgrounds */
+/* Galactic gradient backgrounds */
 .gradient-space {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #4c1d95 50%, #0066cc 100%);
 }
 
-.gradient-planet {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.gradient-nebula {
+  background: linear-gradient(135deg, #0a0a0a 0%, #4c1d95 25%, #0066cc 50%, #50f7d1 75%, #0a0a0a 100%);
+  background-size: 400% 400%;
+  animation: nebula 8s ease-in-out infinite;
 }
 
-.gradient-stars {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.gradient-galaxy {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #4c1d95 50%, #0066cc 75%, #50f7d1 100%);
+}
+
+.gradient-nasa {
+  background: linear-gradient(135deg, #0066cc 0%, #50f7d1 100%);
+}
+
+/* Space effects */
+.space-glow {
+  box-shadow: 0 0 20px rgba(80, 247, 209, 0.3), 0 0 40px rgba(80, 247, 209, 0.1);
+}
+
+.space-border {
+  border: 1px solid rgba(80, 247, 209, 0.3);
+  box-shadow: inset 0 0 10px rgba(80, 247, 209, 0.1);
+}
+
+/* Text effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(80, 247, 209, 0.5);
+}
+
+.text-neon {
+  text-shadow: 0 0 5px rgba(80, 247, 209, 0.8), 0 0 10px rgba(80, 247, 209, 0.6), 0 0 15px rgba(80, 247, 209, 0.4);
 }

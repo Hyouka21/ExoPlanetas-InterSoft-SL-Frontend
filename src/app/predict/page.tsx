@@ -90,7 +90,7 @@ export default function PredictPage() {
   const getConfidenceColor = (probability: number) => {
     if (probability >= 0.8) return 'text-green-600';
     if (probability >= 0.6) return 'text-yellow-600';
-    return 'text-red-600';
+    return 'text-nasa-red';
   };
 
   return (
@@ -151,8 +151,8 @@ export default function PredictPage() {
                 ))}
 
                 {error && (
-                  <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-                    <p className="text-sm text-red-600">{error}</p>
+                  <div className="p-3 bg-nasa-red/10 border border-nasa-red/30 rounded-md">
+                    <p className="text-sm text-nasa-red">{error}</p>
                   </div>
                 )}
 

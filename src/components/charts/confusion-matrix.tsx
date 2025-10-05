@@ -65,9 +65,9 @@ export function ConfusionMatrixChart({ data, className }: ConfusionMatrixChartPr
                     const intensity = maxValue > 0 ? value / maxValue : 0;
                     bgColor = `rgba(34, 197, 94, ${0.2 + intensity * 0.6})`;
                   } else {
-                    // Light red for incorrect predictions (off-diagonal)
+                    // Normal red for incorrect predictions (off-diagonal) - using NASA red
                     const intensity = maxValue > 0 ? value / maxValue : 0;
-                    bgColor = `rgba(239, 68, 68, ${0.1 + intensity * 0.3})`;
+                    bgColor = `rgba(255, 68, 68, ${0.3 + intensity * 0.4})`;
                   }
                   
                   return (
@@ -92,7 +92,7 @@ export function ConfusionMatrixChart({ data, className }: ConfusionMatrixChartPr
             <span className="text-gray-700 font-medium">Correct Predictions</span>
           </div>
           <div className="flex items-center space-x-3">
-            <div className="w-5 h-5 rounded border" style={{ backgroundColor: 'rgba(239, 68, 68, 0.2)' }}></div>
+            <div className="w-5 h-5 rounded border" style={{ backgroundColor: 'rgba(255, 68, 68, 0.5)' }}></div>
             <span className="text-gray-700 font-medium">Incorrect Predictions</span>
           </div>
         </div>
