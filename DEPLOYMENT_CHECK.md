@@ -11,10 +11,18 @@ This file ensures that all necessary files are present for deployment.
 - [x] src/components/ui/button.tsx
 - [x] src/components/model/model-metrics-display.tsx
 - [x] tsconfig.json
+- [x] jsconfig.json
 - [x] next.config.js
 - [x] package.json
 - [x] render.yaml
 - [x] .nvmrc
+
+## TypeScript Dependencies
+
+- [x] typescript (moved to dependencies)
+- [x] @types/node (moved to dependencies)
+- [x] @types/react (in devDependencies)
+- [x] @types/react-dom (in devDependencies)
 
 ## Build Commands
 
