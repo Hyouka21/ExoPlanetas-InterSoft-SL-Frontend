@@ -172,25 +172,6 @@ export interface PredictionParams {
   version?: string;
 }
 
-export interface PredictionRequest {
-  data: ExoplanetData[];
-}
-
-export interface PredictionResponse {
-  predictions: Array<{
-    class: string;
-    probabilities: {
-      CANDIDATE: number;
-      CONFIRMED: number;
-      'FALSE POSITIVE': number;
-    };
-  }>;
-  model_info: {
-    model_name: string;
-    version: string;
-    used_model: string;
-  };
-}
 
 export interface DashboardMetrics {
   confusion_matrix: ConfusionMatrix;
@@ -203,12 +184,6 @@ export interface UploadResponse {
   download_url: string;
 }
 
-export interface TrainingParams {
-  learning_rate?: number;
-  max_leaf_nodes?: number;
-  min_samples_leaf?: number;
-  early_stopping?: boolean;
-}
 
 export interface TrainingResponse {
   status: string;

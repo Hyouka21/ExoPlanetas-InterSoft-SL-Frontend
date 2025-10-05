@@ -172,11 +172,13 @@ export default function ModelInfoPage() {
                 <div className="mt-6">
                   <label className="text-sm font-medium text-gray-500">Training Datasets</label>
                   <div className="mt-2 space-y-2">
-                    {modelInfo.current_model.dataset_name ? (
-                      <div className="flex items-center text-sm p-2 bg-gray-50 rounded-lg">
-                        <Database className="w-4 h-4 text-gray-400 mr-2" />
-                        <span className="font-medium text-gray-800">{modelInfo.current_model.dataset_name}</span>
-                      </div>
+                    {modelInfo.current_model.trained_on && modelInfo.current_model.trained_on.length > 0 ? (
+                      modelInfo.current_model.trained_on.map((dataset, index) => (
+                        <div key={index} className="flex items-center text-sm p-2 bg-gray-50 rounded-lg">
+                          <Database className="w-4 h-4 text-gray-400 mr-2" />
+                          <span className="font-medium text-gray-800">{dataset}</span>
+                        </div>
+                      ))
                     ) : (
                       <div className="flex items-center text-sm p-2 bg-gray-50 rounded-lg">
                         <Database className="w-4 h-4 text-gray-400 mr-2" />

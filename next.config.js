@@ -16,10 +16,10 @@ const nextConfig = {
     // In production, the API calls will go to the configured NEXT_PUBLIC_API_URL
     return []
   },
-  // Performance optimizations
-  experimental: {
-    optimizeCss: true,
-  },
+        // Performance optimizations
+        experimental: {
+          // optimizeCss: true, // Disabled to avoid critters issues
+        },
   // Faster compilation
   swcMinify: true,
   // Reduce bundle size

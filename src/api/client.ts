@@ -169,13 +169,6 @@ class ApiClient {
     };
   }
 
-  // Training endpoints
-  async trainModel(params: TrainingParams): Promise<TrainingResponse> {
-    return this.request<TrainingResponse>('/train', {
-      method: 'POST',
-      body: JSON.stringify(params),
-    });
-  }
 
   // Health check
   async healthCheck(): Promise<{ status: string }> {
