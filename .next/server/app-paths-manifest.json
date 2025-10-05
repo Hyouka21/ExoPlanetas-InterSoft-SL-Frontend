@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/model-info/page": "app/model-info/page.js",
+  "/upload/page": "app/upload/page.js",
+  "/predict/page": "app/predict/page.js",
+  "/train/page": "app/train/page.js"
+}
