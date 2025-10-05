@@ -31,14 +31,22 @@ export default function ModelInfoPage() {
         setLoading(true);
         setError(null);
         
-        // Get basic model info and latest version info
-        const [basicInfo, versionInfo] = await Promise.all([
-          apiClient.getModelInfo(),
-          apiClient.getModelVersionInfo('hgb_exoplanet_model', 'v1.0.6').catch(() => null)
-        ]);
-        
+        // Get basic model info first
+        const basicInfo = await apiClient.getModelInfo();
         setModelInfo(basicInfo);
-        setModelVersionInfo(versionInfo);
+        
+        // Get the first available model and its first version
+        if (basicInfo.available_models.length > 0) {
+          const firstModel = basicInfo.available_models[0];
+          
+          // Get versions for the first model
+          const modelVersions = await apiClient.getModelVersions(firstModel);
+          if (modelVersions.versions.length > 0) {
+            const firstVersion = modelVersions.versions[0]; // First version, not latest
+            const versionInfo = await apiClient.getModelVersionInfo(firstModel, firstVersion);
+            setModelVersionInfo(versionInfo);
+          }
+        }
       } catch (err) {
         console.error('Error fetching model info:', err);
         setError(err instanceof Error ? err.message : 'Error loading model information');
@@ -128,31 +136,44 @@ export default function ModelInfoPage() {
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Current Model</label>
+                    <label className="text-sm font-medium text-gray-500">Selected Model</label>
                     <p className="text-lg font-semibold mt-1">
-                      {modelInfo.current_model.name}
+                      {modelVersionInfo?.model_name || modelInfo.current_model.name}
                     </p>
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-gray-500">Current Version</label>
+                    <label className="text-sm font-medium text-gray-500">Selected Version</label>
                     <p className="text-lg font-semibold mt-1">
-                      {modelInfo.current_model.version}
+                      {modelVersionInfo?.version || modelInfo.current_model.version}
                     </p>
                   </div>
                   
                   <div>
                     <label className="text-sm font-medium text-gray-500">Supported Classes</label>
                     <div className="flex flex-wrap gap-1 mt-1">
-                      {modelInfo.current_model.classes.map((className) => (
-                        <Badge 
-                          key={className}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {className}
-                        </Badge>
-                      ))}
+                      {modelVersionInfo ? 
+                        Object.keys(modelVersionInfo.metrics).filter(key => 
+                          !['accuracy', 'macro avg', 'weighted avg'].includes(key)
+                        ).map((className) => (
+                          <Badge 
+                            key={className}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {className}
+                          </Badge>
+                        )) :
+                        modelInfo.current_model.classes.map((className) => (
+                          <Badge 
+                            key={className}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {className}
+                          </Badge>
+                        ))
+                      }
                     </div>
                   </div>
                 </div>
