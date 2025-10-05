@@ -12,9 +12,16 @@ import { ModelMetricsDisplay } from '@/components/model/model-metrics-display';
 import { 
   Brain, 
   Info, 
+  Target, 
+  TrendingUp, 
   Database,
+  FileText,
+  Activity,
   Loader2,
   AlertCircle,
+  CheckCircle,
+  Clock,
+  Cpu,
   ArrowLeft
 } from 'lucide-react';
 import Link from 'next/link';
@@ -173,6 +180,41 @@ export default function ModelInfoPage() {
           </div>
         )}
 
+        {/* Quick Actions */}
+        <div className="mt-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Activity className="w-5 h-5 mr-2 text-space-600" />
+                Acciones Rápidas
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Link href="/">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Target className="w-4 h-4 mr-2" />
+                    Ver Dashboard
+                  </Button>
+                </Link>
+                
+                <Link href="/predict">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Brain className="w-4 h-4 mr-2" />
+                    Clasificar Exoplaneta
+                  </Button>
+                </Link>
+                
+                <Link href="/upload">
+                  <Button variant="outline" className="w-full justify-start">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Subir CSV
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

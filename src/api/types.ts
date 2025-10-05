@@ -97,6 +97,18 @@ export interface ModelVersionInfo {
   version: string;
   metrics: {
     accuracy: number;
+    'macro avg'?: {
+      precision: number;
+      recall: number;
+      'f1-score': number;
+      support: number;
+    };
+    'weighted avg'?: {
+      precision: number;
+      recall: number;
+      'f1-score': number;
+      support: number;
+    };
     [key: string]: any;
   };
   confusion_matrix: number[][];
