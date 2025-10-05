@@ -11,6 +11,7 @@ const requiredFiles = [
   'src/components/ui/button.tsx',
   'src/components/model/model-metrics-display.tsx',
   'tsconfig.json',
+  'jsconfig.json',
   'next.config.js',
   'package.json',
   'render.yaml',
